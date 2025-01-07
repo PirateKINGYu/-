@@ -50,7 +50,7 @@ CNN-ViT串行融合 (CNNVITS.py)
 添加权重衰减(weight decay)
 优化学习率策略
 # 实验结果
-实验结果可以通过运行draw.py生成对比图表,保存在saved_models/accuracy_comparison_all_models.png。
+实验结果可以通过运行draw.py生成对比图表（已经有saved_models文件在仓库里，draw.py可以直接调用）,保存在saved_models/accuracy_comparison_all_models.png。
 图表将展示:
 不同模型在验证集上的准确率对比
 训练过程中的loss变化
