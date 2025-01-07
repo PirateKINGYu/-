@@ -1,6 +1,6 @@
 # CNN-ViT混合模型实验
 本项目实现了CNN(ResNet-18)与Vision Transformer的多种组合模型,在CIFAR-10和CIFAR-100数据集上进行了实验对比。
-文件结构
+## 文件结构
 .
 ├── CNNVITP.py          // CNN-ViT并行融合基础版
 ├── CNNVITP_PRO.py      // CNN-ViT并行融合改进版
@@ -13,12 +13,13 @@
 
 
 # 实验环境
-Python 3.x
+Python 3.8+
 PyTorch
 torchvision
 timm
 matplotlib
 tqdm
+建议显卡使用3090或以上,以获得更好的训练速度和效果。
 可以通过以下命令安装依赖:
 
 # 数据集下载
@@ -53,3 +54,19 @@ CNN-ViT串行融合 (CNNVITS.py)
 不同模型在验证集上的准确率对比
 训练过程中的loss变化
 准确率随epochs的变化趋势
+## 表3-1 对比实验信息
+| Model       | Accuracy | Loss   |
+|-------------|----------|--------|
+| ResNet-18   | 92.81%   | 0.3622 |
+| ViT         | 71.16%   | 0.8253 |
+| RVSerial    | 89.11%   | 0.3167 |
+| RVParallel  | 93.20%   | 0.3514 |
+## 表3-2 消融实验信息
+| Model       | Accuracy | Loss   |
+|-------------|----------|--------|
+| **Cifar-10 DataSet** |          |        |
+| RVP_SGD     | 93.17%   | 0.2545 |
+| RVParallel  | 93.20%   | 0.3514 |
+| **Cifar-100 DataSet** |          |        |
+| RVP_SGD     | 73.68%   | 1.2145 |
+| RVParallel  | 71.37%   | 1.5021 |
