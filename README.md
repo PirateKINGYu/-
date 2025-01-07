@@ -20,12 +20,13 @@ timm
 matplotlib
 tqdm
 建议显卡使用3090或以上,以获得更好的训练速度和效果。
-可以通过以下命令安装依赖:
 
 # 数据集下载
 实验使用CIFAR-10和CIFAR-100数据集,代码会自动下载到./data目录。
 CIFAR-10: 60000张32x32彩色图片,10个类别,每类6000张
+https://www.kaggle.com/datasets/petitbonney/cifar10-image-recognition
 CIFAR-100: 60000张32x32彩色图片,100个类别,每类600张
+https://www.kaggle.com/datasets/melikechan/cifar100
 模型结构
 项目包含以下几种模型实现:
 CNN Only - 仅使用ResNet-18 (RESNETONLY.py)
@@ -37,12 +38,12 @@ CNN-ViT串行融合 (CNNVITS.py)
 # 运行方式
 训练单个模型,例如:
 比较不同模型结果:
-模型保存
+## 模型保存
 训练过程中的最佳模型和指标会保存在saved_models目录下:
 模型权重: best_model_*.pth
 训练曲线: *_Loss.png, *_Accuracy.png
 训练指标: *_accuracies.json
-实验改进
+## 实验改进
 改进版本(CNNVITP_PRO.py)主要包含以下优化:
 添加Dropout层(p=0.3)减少过拟合
 使用SGD优化器替代Adam
@@ -61,6 +62,7 @@ CNN-ViT串行融合 (CNNVITS.py)
 | ViT         | 71.16%   | 0.8253 |
 | RVSerial    | 89.11%   | 0.3167 |
 | RVParallel  | 93.20%   | 0.3514 |
+
 ## 表3-2 消融实验信息
 | Model       | Accuracy | Loss   |
 |-------------|----------|--------|
